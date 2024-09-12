@@ -8,7 +8,10 @@ from PyQt5.QtWidgets import QLabel, QVBoxLayout, QWidget
 import time
 import librosa
 
-
+#####
+##  QGLWidget, o contexto ModernGL 
+##  responsavevel por carregar os shaders
+#####
 class ModernGLApp(QGLWidget):
     def __init__(self):
         super().__init__()
@@ -21,7 +24,7 @@ class ModernGLApp(QGLWidget):
         self.timer.start(16)  # Aproximadamente 60 FPS (1000 ms / 16 ms)
         self.current_dir = os.path.dirname(os.path.abspath(__file__))
 
-        # Combine o diretório com o nome do arquivo de áudio
+        # Configura a musica a ser analizada
         self.audio_path = os.path.join(self.current_dir, 'YoshuaEm_MM.mp3')
         self.y, self.sr = librosa.load(self.audio_path)
         self.n_bands = 6
@@ -43,7 +46,7 @@ class ModernGLApp(QGLWidget):
         # Carregar shaders
         current_dir = os.path.dirname(os.path.abspath(__file__))
         vertex_shader_path = os.path.join(current_dir, 'programs', 'vertex.glsl')
-        fragment_shader_path = os.path.join(current_dir, 'programs', 'fragment.glsl')
+        fragment_shader_path = os.path.join(current_dir, 'programs', 'psy_fragment.glsl')
 
         vertex_shader = open(vertex_shader_path).read()
         fragment_shader = open(fragment_shader_path).read()

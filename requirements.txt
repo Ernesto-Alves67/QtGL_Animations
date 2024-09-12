@@ -1,0 +1,4 @@
+moderngl
+numpy
+PyQt5
+librosa

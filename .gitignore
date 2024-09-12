@@ -3,4 +3,5 @@
 
 # Ignorar arquivos .mp4
 *.mp4
-
+# Ignorar arquivos .ipynb (Jupyter Notebooks)
+*.ipynb
